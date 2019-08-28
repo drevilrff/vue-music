@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-09 10:55:39
+ * @LastEditTime: 2019-08-28 22:03:16
+ * @LastEditors: Please set LastEditors
+ */
 'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
@@ -9,6 +16,27 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+
+// const app = express()
+// const axios = require('axios')
+// const apiRoutes = express.Router()
+
+// apiRoutes.route('/getDiscList').get(function (req, res, next) {
+//   var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+//   axios.get(url, {
+//     headers: {
+//       referer: 'https://y.qq.com/?ADTAG=myqq',
+//       host: 'y.qq.com'
+//     },
+//     params: req.query
+//   }).then((response) => {
+//     res.json(response.data)
+//   }).catch((e) => {
+//     console.log(e)
+//   })
+// })
+
+// app.use('/api', apiRoutes)
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -85,8 +113,8 @@ module.exports = new Promise((resolve, reject) => {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+          ? utils.createNotifierCallback()
+          : undefined
       }))
 
       resolve(devWebpackConfig)
