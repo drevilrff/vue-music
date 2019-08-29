@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-09 10:55:39
- * @LastEditTime: 2019-08-28 14:46:09
+ * @LastEditTime: 2019-08-29 14:43:48
  * @LastEditors: Please set LastEditors
  */
 'use strict'
@@ -13,17 +13,22 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     // qq音乐‘热歌推荐’代理设置
     proxyTable: {
-      '/api': {
+      '/api/getDistList': {
         target: 'https://u.y.qq.com/cgi-bin/musicu.fcg',
         pathRewrite: {'^/api/getDistList' : ''},
-        changeOrigin: true,     // target是域名的话，需要这个参数，
-        secure: false,          // 设置支持https协议的代理
+        changeOrigin: true,
+        secure: false,
+      },
+      '/api/getSingerList': {
+        target: 'https://u.y.qq.com/cgi-bin/musicu.fcg',
+        pathRewrite: {'^/api/getSingerList' : ''},
+        changeOrigin: true,
+        secure: false,
       },
     },
 
